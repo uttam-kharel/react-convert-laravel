@@ -1,0 +1,38 @@
+.dark {
+  --color-background: #0F172A;
+  --color-foreground: #F1F5F9;
+  --color-surface: #1E293B;
+  --color-surface-muted: #1E293B;
+  --color-card: #1E293B;
+  --color-card-foreground: #F1F5F9;
+  --color-popover: #1E293B;
+  --color-popover-foreground: #F1F5F9;
+  --color-primary: #3E9BE0;
+  --color-primary-foreground: #0F172A;
+  --color-primary-soft: #1E3A5C;
+  --color-secondary: #2DD4BF;
+  --color-secondary-foreground: #0F172A;
+  --color-secondary-soft: #134E4A;
+  --color-accent: #1E3A5C;
+  --color-accent-foreground: #F1F5F9;
+  --color-emergency: #F87171;
+  --color-emergency-foreground: #0F172A;
+  --color-emergency-soft: #451A1A;
+  --color-muted: #1E293B;
+  --color-muted-foreground: #94A3B8;
+  --color-success: #4ADE80;
+  --color-success-soft: #134E4A;
+  --color-destructive: #F87171;
+  --color-destructive-foreground: #0F172A;
+  --color-border: rgb(255 255 255 / 10%);
+  --color-input: rgb(255 255 255 / 15%);
+  --color-ring: #2DD4BF;
+  --color-sidebar: #1E293B;
+  --color-sidebar-foreground: #F1F5F9;
+  --color-sidebar-primary: #3E9BE0;
+  --color-sidebar-primary-foreground: #0F172A;
+  --color-sidebar-accent: #1E3A5C;
+  --color-sidebar-accent-foreground: #F1F5F9;
+  --color-sidebar-border: rgb(255 255 255 / 10%);
+  --color-sidebar-ring: #2DD4BF;
+}

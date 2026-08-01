@@ -1,0 +1,4 @@
+@layer base {
+  * { border-color: var(--color-border); }
+  html { -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
+}
