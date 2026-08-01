@@ -247,7 +247,7 @@ Set on Vercel → project **react-convert-laravel** → **Settings → Environme
 | `CACHE_STORE` | `array` | No persistent cache needed. |
 | `QUEUE_CONNECTION` | `sync` | Jobs run inline. |
 | `LOG_CHANNEL` | `stderr` | Logs appear in Vercel Function Logs. |
-| `DB_CONNECTION` | `sqlite` | Uses the uploaded `database/database.sqlite` (read-only). |
+| `DB_CONNECTION` | *(not set — defaults to `sqlite`)* | Uses the uploaded `database/database.sqlite` (read-only). `config/database.php` defaults to sqlite when unset. |
 
 CLI equivalent (from the project folder, after `vercel login` / `vercel link`):
 
@@ -260,7 +260,7 @@ echo "cookie"                 | vercel env add SESSION_DRIVER production
 echo "array"                  | vercel env add CACHE_STORE production
 echo "sync"                   | vercel env add QUEUE_CONNECTION production
 echo "stderr"                 | vercel env add LOG_CHANNEL production
-echo "sqlite"                 | vercel env add DB_CONNECTION production
+# DB_CONNECTION is NOT set on the project — config/database.php defaults to sqlite.
 ```
 
 > 💡 **CLI gotcha:** do **not** append `</dev/null` to these `echo | vercel env add` pipelines —
@@ -411,5 +411,5 @@ its own IPs and Vercel's certificate validation can fail.
 
 ---
 
-*Generated documentation for the `refactors` branch deployment. The site was verified live on
-2026-07-31: all public routes + `/up` + `/admin/login` return 200, assets served over `https://`.*
+*Generated documentation for the `react-convert-laravel` deployment. Verified live on
+2026-08-02: `https://react-convert-laravel.vercel.app` — home, `/up` and `/admin/login` all return 200.*
