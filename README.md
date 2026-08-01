@@ -1,6 +1,6 @@
 # Shubham International Hospital — Laravel + Livewire (Vercel Deployment)
 
-> **Deployment target:** **https://v2.sih.com.np** &nbsp;·&nbsp; *(not live yet — follow* [`VERCEL-V2-SETUP.md`](VERCEL-V2-SETUP.md) *to create the Vercel project, add the domain + Cloudflare CNAME, and set the env vars)*
+> **Live at:** **https://react-convert-laravel.vercel.app** ✅ &nbsp;·&nbsp; **Custom domain:** **https://v2.sih.com.np** *(attached & verified in Vercel — just add the Cloudflare CNAME per* [`VERCEL-V2-SETUP.md`](VERCEL-V2-SETUP.md) *step 5 and it goes live)*
 
 This is a **Laravel 13 + Livewire 4** hospital website (public site + admin panel) deployed to
 **Vercel serverless functions** using the community `vercel-php` runtime. This README documents
@@ -234,7 +234,7 @@ even though the files exist. With trustProxies set, everything renders as `https
 
 ## 4. Production environment variables
 
-Set on Vercel → project **livewire-app** → **Settings → Environment Variables**
+Set on Vercel → project **react-convert-laravel** → **Settings → Environment Variables**
 (for the **Production** environment). All are marked **Sensitive/Encrypted**.
 
 | Variable | Value | Why |
@@ -323,15 +323,21 @@ curl -s -X PATCH \
 
 ## 6. Custom domain (v2.sih.com.np)
 
-**`v2.sih.com.np`** (DNS on **Cloudflare**) is the **deployment target** of this project — it is
-**not live yet**. This repo is a fresh copy of the v1 hospital site and must be deployed to a
-**brand-new Vercel project** before the domain can be attached (a custom domain can only belong to
-one Vercel project, and `v1.sih.com.np` already belongs to the old one).
+**`v2.sih.com.np`** (DNS on **Cloudflare**) is the **custom domain** of this project.
+**Current state (2026-08-02):**
 
-> **Follow [`VERCEL-V2-SETUP.md`](VERCEL-V2-SETUP.md) — it has the complete, current steps:**
-> create the new Vercel project → set env vars (`APP_URL=https://v2.sih.com.np`, `APP_KEY`, …) →
-> add GitHub secrets (`VERCEL_TOKEN`/`VERCEL_ORG_ID`/`VERCEL_PROJECT_ID`) → add the domain in
-> Vercel → add the Cloudflare CNAME `v2` → `cname.vercel-dns.com` (DNS only) → push to `main`.
+| Step | Status |
+|---|---|
+| New Vercel project `react-convert-laravel` created (`prj_Jn68MIQIDMy31sApwUsp69wx44xs`) | ✅ done |
+| Production deploy → `https://react-convert-laravel.vercel.app` (home + `/up` + `/admin/login` = 200) | ✅ done |
+| Production env vars set (`APP_URL=https://v2.sih.com.np`, `APP_KEY`, `SESSION_DRIVER=cookie`, `CACHE_STORE=array`, `QUEUE_CONNECTION=sync`, `LOG_CHANNEL=stderr`, `APP_DEBUG=false`) | ✅ done |
+| GitHub Actions secrets (`VERCEL_TOKEN`/`VERCEL_ORG_ID`/`VERCEL_PROJECT_ID`) | ✅ done — CI/CD deploys on push to `main` |
+| Domain `v2.sih.com.np` attached to the new project (verified: true) | ✅ done |
+| Cloudflare CNAME `v2` → `cname.vercel-dns.com` (DNS only) | ⏳ **user step — add it and v2.sih.com.np goes live** |
+
+> **One remaining step:** in Cloudflare (zone `sih.com.np`) add a **CNAME** record
+> `v2` → `cname.vercel-dns.com` with proxy set to **DNS only** (grey cloud). Vercel then issues
+> the TLS certificate automatically and `https://v2.sih.com.np` serves this project.
 
 ### Vercel side
 
